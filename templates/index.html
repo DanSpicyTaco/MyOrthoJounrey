@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box container-fluid">
+
+    <h1 class="title">My Orthopaedic Journey - Portal</h1>
+
+    <div class="row mt-5">
+        <div class="col" style: "width:50%">
+        <div class="image_text">
+            <a href="{{ url_for('doctorQs') }}">
+            <img src="/static/images/Doctor.jpg" alt="Doctor">
+            <div class="centered_text">
+                <h1>Doctors</h1>
+            </div>
+            </a>
+        </div>
+        </div>
+    
+        <div class="col" style: "width:50%">
+        <div class="image_text">
+            <a href="{{ url_for('physioQs') }}">
+            <img src="/static/images/physio.jpg" alt="Physiotherapist">
+            <div class="centered_text">
+                <h1>Physiotherapists</h1>
+            </div>
+            </a>
+        </div>
+        </div>
+</div>
+{% endblock %}

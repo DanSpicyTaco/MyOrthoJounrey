@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box container-fluid">
+
+{% if patient==False %}
+    <div class="wrap">
+        <form method="POST">
+            <div class="search">
+                <input type="text" name="PID" class="searchTerm" placeholder="Search Patient ID">
+                <button type="submit" class="searchButton">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+    
+{% else %}
+
+    <h1>Patient {{PID}} Details</h1>
+
+    <h2 style="text-align:left">Health</h2><br/>
+    <h3 style="text-align:left">Weight</h3>
+    <img src="/static/images/Weight.png" alt="Physiotherapist">
+    <br/><br/>
+    <h2 style="text-align:left">Medications</h2>
+    <div style="text-align:left">Patient needs a lot of drugs</div>
+    <br/><br/>
+    <h2 style="text-align:left">Exercise</h2>
+    <img src="/static/images/exercise.jpg" alt="Physiotherapist">
+    <br/><br/>
+    <h2 style="text-align:left">Sleep Patterns</h2>
+    <img src="/static/images/sleep.png" alt="Physiotherapist">
+
+    
+{% endif %}
+
+    <h2><a href="{{ url_for('homepage') }}">Return Home</a></h2>
+</div>
+{% endblock %}

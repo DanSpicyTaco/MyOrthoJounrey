@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box center">
+</div>
+
+<div class="center">
+    <div class="wrap-login100">
+        <form class="login100-form validate-form" method="POST">
+            <span class="login100-form-title p-b-26">
+                Patient Details
+            </span>
+
+            <!--Patient ID-->
+             <div class="wrap-input100 validate-input" data-validate="Required">
+                    <input class="input100" type="text" name="PID">
+                    <span class="focus-input100" data-placeholder="Patient ID"></span>
+            </div>
+
+            <!--Pre-Op Therapy-->
+            Pre-Operation Therapy
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                <input class="input100" type="text" name="PreOpActivity">
+                <span class="focus-input100" data-placeholder="Activity"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                    <input class="input100" type="number" name="PreOpFrequency">
+                    <span class="focus-input100" data-placeholder="Frequency Per Week"></span>
+            </div>
+            <div class="input-group-btn">
+                    <button class="btn btn-success" type="button">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">Add Activity</span>
+                    </button>
+            </div>
+
+            <!--Post-Op Therapy-->
+            Post-Operation Therapy
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                <input class="input100" type="text" name="PostOpActivity">
+                <span class="focus-input100" data-placeholder="Activity"></span>
+            </div>
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                    <input class="input100" type="number" name="PostOpFrequency">
+                    <span class="focus-input100" data-placeholder="Frequency Per Week"></span>
+            </div>
+            <div class="input-group-btn">
+                    <button class="btn btn-success" type="button">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">Add Activity</span>
+                    </button>
+            </div>
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" type="submit" value="submit_patient"> Create </button>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+<div class="box center">
+</div>
+
+<script>
+    var room = 1;
+    function add_session() {
+
+        room++;
+        var objTo = document.getElementById('add_session')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML = '<div class="block_space"></div><!--Venue--> <div class="wrap-input100 input100-select"> <span class="label-input100">Venue</span> <div> <select class="selection-2" name="venue[]" id="venue" onchange="java_script_:show(this.options[this.selectedIndex].value)"> <option value="unselected">Select Venue Location</option> {% for venue in venues %} <option value="{{venue.name}}">{{venue.name}}</option> {% endfor %} </select> </div> </div> <!--Session Date--> <div class="wrap-input100"> <span class="label-input100">Session Date</span> <input class="input100" type="date" id="session_date" name="session_date[]"> </div> <!--Deregistration Window--> <div class="wrap-input100"> <input class="input100" type="text" id="dereg_window" name="dereg_window[]"> <span class="focus-input100" data-placeholder="Deregistration Window (hours)"></span> </div> <!--Presenter--> <div class="wrap-input100"> <input class="input100" type="text" id="convenor" name="convenor[]"> <span class="focus-input100" data-placeholder="presenter"></span> </div> <div class="input-group-btn"> <button class="btn btn-success" type="button" onclick="add_session();"> <span class="glyphicon glyphicon-plus" aria-hidden="true">Add Session</span> </button> </div>';
+
+        objTo.appendChild(divtest)
+    }
+    function remove_session(rid) {
+        $('.removeclass' + rid).remove();
+    }
+</script>
+</div>
+
+{% endblock %}

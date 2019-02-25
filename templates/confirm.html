@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box container-fluid">
+    {% if name != None %}
+        <h1>New Patient Confrimation</h1>
+        <h2 style="text-align:left">Details</h2>
+        <div style="text-align:left">
+                <b>Name:</b> {{name}} <br/>
+                <b>Date of Birth:</b> {{dob}} <br/>
+                <b>Operation Location:</b> {{oLocation}} <br/>
+                <b>Date and Time of Operation:</b> {{sDate}} <br/>
+        </div>
+        
+        <h2>Patient ID for {{name}}: TX768</h2>
+
+
+    {% else %}
+        Error: You should not be here!
+    {% endif %}
+
+    <h2><a href="{{ url_for('homepage') }}">Return Home</a></h2>
+</div>
+
+
+
+{% endblock %}

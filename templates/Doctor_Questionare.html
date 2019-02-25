@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="box center">
+</div>
+
+<div class="center">
+    <div class="wrap-login100">
+        <form class="login100-form validate-form" method="POST">
+            <span class="login100-form-title p-b-26">
+                New Patient
+            </span>
+            <!--Name-->
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                <input class="input100" type="text" name="Pname">
+                <span class="focus-input100" data-placeholder="Patient Name"></span>
+            </div>
+
+            <!--Date of Birth-->
+            <div class="wrap-input100">
+                <span class="label-input100">Date of Birth</span>
+                <input class="input100" type="date" name="birthdate">
+            </div>
+
+            <!--Operation Location-->
+            <div class="wrap-input100 validate-input" data-validate="Required">
+                <input class="input100" type="text" name="Operationlocation">
+                <span class="focus-input100" data-placeholder="Operation Location"></span>
+            </div>
+
+            <!--Date and Time of Surgery-->
+            <div class="wrap-input100">
+                <span class="label-input100">Date and Time of Surgery</span>
+                <input class="input100" type="datetime-local" name="surgery_date">
+            </div>
+
+            <!--Add Medication-->
+            <div class="wrap-input100">
+                    <span class="label-input100"><input type="checkbox" name="addMedication" id="addMed" onclick="showMeds()"> &nbsp; Add Medication </span>
+                </div>
+
+            <div class="wrap-input100 validate-input" id="medication" style="display:none">
+                    <input class="input100" type="text" name="meds">
+                    <span class="focus-input100" data-placeholder="Medication Details"></span>
+                </div>
+
+            <!--Add Health Data-->
+            <div class="wrap-input100">
+                    <span class="label-input100"><input type="checkbox" name="addHealthData" id="addHealth" onclick="showHealth()"> &nbsp; Add Health Data </span>
+                </div>
+
+            <div class="wrap-input100 validate-input" id="weight" style="display:none">
+                    <input class="input100" type="text" name="weight">
+                    <span class="focus-input100" data-placeholder="Does the patient need to loose weight?"></span>
+                </div>
+
+            <div class="wrap-input100 validate-input" id="sleep" style="display:none">
+                    <input class="input100" type="text" name="sleep">
+                    <span class="focus-input100" data-placeholder="Sleep Details"></span>
+                </div>
+    
+
+            <div class="container-login100-form-btn">
+                <div class="wrap-login100-form-btn">
+                    <div class="login100-form-bgbtn"></div>
+                    <button class="login100-form-btn" type="submit" value="submit_patient"> Create </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="box center">
+</div>
+
+<script>
+
+    function showMeds() {
+        var checkBox = document.getElementById("addMed");
+        var text = document.getElementById("medication");
+
+        if (checkBox.checked == true){
+            text.style.display = "block";
+        } else {
+            text.style.display = "none";
+        }
+    }
+
+    function showHealth() {
+        var checkBox = document.getElementById("addHealth");
+        var text1 = document.getElementById("weight");
+        var text2 = document.getElementById("sleep");
+
+        if (checkBox.checked == true){
+            text1.style.display = "block";
+            text2.style.display = "block";
+        } else {
+            text1.style.display = "none";
+            text2.style.display = "none";
+        }
+    }
+</script>
+</div>
+
+{% endblock %}
